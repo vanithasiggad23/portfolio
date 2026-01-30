@@ -1,0 +1,81 @@
+/* ===== Certificates Section ===== */
+.certificates {
+  padding: 4rem 2rem 6rem;
+  color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.certificates.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grid */
+.cert-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+/* Card */
+.cert-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  border-radius: 16px;
+  padding: 1.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 229, 255, 0.15);
+}
+
+.cert-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.provider {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 1.2rem;
+}
+
+/* Button */
+.view-btn {
+  display: inline-block;
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.view-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #00e5ff;
+  transition: width 0.3s ease;
+}
+
+.view-btn:hover::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .certificates {
+    padding: 3rem 1.5rem 4rem;
+  }
+}

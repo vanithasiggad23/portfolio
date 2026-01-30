@@ -1,0 +1,235 @@
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ========== HERO SECTION ========== */
+.Heroclass {
+  min-height: auto;        /* stop forcing screen height */
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+
+  display: flex;
+  align-items: flex-start; /* THIS matters */
+  justify-content: center;
+
+  background: transparent;
+
+  color: rgb(255, 246, 246);
+  position: relative;
+  overflow: hidden;
+}
+.Heroclass {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+
+/* ========== LAYOUT ========== */
+.hero-wrapper {
+  max-width: 900px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ========== LEFT SIDE ========== */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========== PROFILE IMAGE ========== */
+.Hero-img {
+  width: 350px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 8px rgba(255, 255, 255, 0.05);
+
+  opacity: 0;
+  transform: scale(0.9);
+  animation: revealPhoto 1.2s ease forwards;
+}
+
+@keyframes revealPhoto {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========== ROLE ========== */
+.role {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f3f5;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealRole 1s ease forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes revealRole {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== LINKS ========== */
+.hero-links {
+  margin-top: 1.8rem;
+  display: flex;
+  gap: 1.5rem;
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal 1s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.hero-links a {
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.hero-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: #00e5ff;
+  transition: width 0.3s ease;
+}
+
+.hero-links a:hover::after {
+  width: 100%;
+}
+
+/* ========== RIGHT SIDE TEXT ========== */
+.hero-right h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.hero-right p {
+  max-width: 600px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: justify;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== BACKGROUND GLOWS ========== */
+.Heroclass::before,
+.Heroclass::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 229, 255, 0.25),
+    transparent 70%
+  );
+  filter: blur(90px);
+  animation: orbFloat 10s ease-in-out infinite;
+}
+
+.Heroclass::before {
+  top: 10%;
+  left: 15%;
+}
+
+.Heroclass::after {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 4s;
+}
+
+@keyframes orbFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
+}
+
+/* ========== GRADIENT ANIMATION ========== */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .Hero-img {
+    width: 240px;
+    height: 360px;
+  }
+
+  .hero-right h1 {
+    font-size: 2rem;
+  }
+
+  .hero-right p {
+    font-size: 0.95rem;
+  }
+
+  .hero-links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+.hero-right h1 {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .hero-right h1 {
+    white-space: normal;
+  }
+}
+

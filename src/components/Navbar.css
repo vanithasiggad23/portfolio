@@ -1,0 +1,55 @@
+/* ========== NAVBAR ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(6, 20, 27, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Active section */
+.navbar li.active a {
+  color: #00e5ff;
+}
+
+.navbar li.active a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: #00e5ff;
+}
+
+/* Hover */
+.navbar li a:hover {
+  color: #7dd3fc;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .navbar ul {
+    gap: 1.5rem;
+  }
+}

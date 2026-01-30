@@ -1,0 +1,161 @@
+/* ========== PROJECTS SECTION ========== */
+.projects {
+  padding: 4rem 2rem 6rem;
+  background: transparent;
+  color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Grid */
+.project-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+/* Card */
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.8rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 229, 255, 0.25);
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* Tech tags */
+.tech-stack {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-stack span {
+  background: rgba(0, 229, 255, 0.15);
+  color: #00e5ff;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+/* ========== MODAL ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #06141b;
+  padding: 2.5rem;
+  border-radius: 18px;
+  max-width: 520px;
+  width: 90%;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.modal h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.modal p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.modal-tech {
+  margin-top: 1.2rem;
+}
+
+.modal button {
+  margin-top: 2rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #00e5ff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal {
+    padding: 2rem;
+  }
+}
+/* Cards start visible */
+.project-card {
+  opacity: 1;
+  transform: none;
+}
+
+/* Animate ONLY when observer triggers */
+.project-grid.show .project-card {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* Stagger effect */
+.project-grid.show .project-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.project-grid.show .project-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.project-grid.show .project-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
